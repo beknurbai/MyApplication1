@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main3Activity"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/editTextName"
+        android:hint="                      ФИО"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+    <EditText
+        android:id="@+id/editTextGroup"
+        android:layout_width="match_parent"
+        android:hint="                   ГРУППА"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="match_parent"
+        android:hint="                   ВОЗРАСТ"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+<EditText
+    android:id="@+id/editTextNumber"
+    android:layout_width="match_parent"
+    android:hint="                  Номер тел"
+    android:layout_height="wrap_content"
+    android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textSize="30sp" />
+</LinearLayout>
