@@ -12,9 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Main3Activity extends AppCompatActivity {
 EditText editText,editAge,editGroup,editPhone;
 public static String TEXT_KEY_2="text_key";
+private Intent intent;
+
 SomeClass someClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+getInt();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         editText=findViewById(R.id.editTextName);
@@ -25,40 +28,42 @@ SomeClass someClass;
         save.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+Close();
             Intent intent=new Intent();
-            someClass.s=editText.getText().toString();
-            intent.putExtra(MainActivity.RESULT_KEY,someClass);
+            intent.putExtra(TEXT_KEY_2,someClass);
             setResult(RESULT_OK,intent);
             finish();
 
         }
     });
-        if (getIntent()!=null){
-        someClass=(SomeClass) getIntent().getSerializableExtra(TEXT_KEY_2);
+
+
+        }public void getInt(){
+        intent=getIntent();
+        someClass=(SomeClass) intent.getSerializableExtra("res");
+        if (someClass!=null){
+            getText();
+        }
+
+    }
+
+
+        public void Close() {
+        someClass.s=editText.getText().toString();
+        someClass.age = editAge.getText().toString();
+        someClass.phone = editPhone.getText().toString();
+        someClass.group = editGroup.getText().toString();
+
+        }
+    public void getText() {
         editText.setText(someClass.s);
-                someClass = (SomeClass) getIntent().getSerializableExtra(TEXT_KEY_2);
-                editAge.setText(someClass.age);
-                someClass = (SomeClass) getIntent().getSerializableExtra(TEXT_KEY_2);
-                editPhone.setText(someClass.phone);
-                someClass = (SomeClass) getIntent().getSerializableExtra(TEXT_KEY_2);
-                editGroup.setText(someClass.group);
+editAge.setText(someClass.age);
+editGroup.setText(someClass.group);
+editPhone.setText(someClass.phone);
+
+    }
+}
 
 
-        }}
-        public void Close(View v) {
 
-            someClass.age = editAge.getText().toString();
-            someClass.phone = editPhone.getText().toString();
-            someClass.group = editGroup.getText().toString();
-
-
-            TextView age = (TextView) findViewById(R.id.editTextAge);
-            age.setText(someClass.age);
-            TextView phone = (TextView) findViewById(R.id.editTextNumber);
-            phone.setText(someClass.phone);
-            TextView group = (TextView) findViewById(R.id.editTextGroup);
-            group.setText(someClass.age);
-
-        }}
 

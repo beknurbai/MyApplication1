@@ -17,7 +17,7 @@ onClickable listener;
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onTextClick(someClass);
+                listener.onTextClick(getAdapterPosition(),someClass);
             }
         });
     }

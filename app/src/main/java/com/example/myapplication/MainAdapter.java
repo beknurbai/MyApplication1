@@ -14,18 +14,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder>{
   onClickable listener;
   public MainAdapter(){
       data =new ArrayList<>();
-      for (int i = 1; i <=10 ; i++) {
-          SomeClass someClass=new SomeClass();
-          someClass.position=i;
-          someClass.s=i+" ";
-          data.add(someClass);
-      }
+  }
 
-
-  }public void change(SomeClass someClass){
-      data.set(someClass.position,someClass);
-      notifyDataSetChanged();
-
+  public void change(ArrayList<SomeClass>someClass){
+     data=someClass;
+     notifyDataSetChanged();
     }
 
 
@@ -42,6 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         holder.bind(data.get(position));
+        holder.listener=listener;
     }
 
     @Override
